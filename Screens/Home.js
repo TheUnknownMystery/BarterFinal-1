@@ -2,7 +2,7 @@ import * as React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ScroolView, FlatList } from 'react-native'
 import db from '../config'
 import firebase from 'firebase'
-//import {SideDrawer} from "../SideDrawer/SideDrawer"
+import { ListItem } from 'react-native-elements'
 
 export default class Home extends React.Component {
 
@@ -29,24 +29,40 @@ export default class Home extends React.Component {
 
   render() {
     return (
-    
-        <View style={{ flex: 1, backgroundColor: '#E9E6F9' }}>
 
-          <FlatList
-            data={this.state.UserItemInfo}
-            renderItem={({ item }) => {
-              return (
+      <View style={{ flex: 1, backgroundColor: '#E9E6F9' }}>
 
-                <View style={{ padding: 3, backgroundColor: 'white', borderBottomWidth: 2, borderColor: 'lightgrey' }}>
+        <FlatList
+          data={this.state.UserItemInfo}
+          renderItem={({ item }) => {
+            return (
 
-                  <Text style={{ fontWeight: 'bold' }}>{'ItemName: ' + item.Item_Name}</Text>
-                  <Text style={{ fontWeight: 'bold' }}>{'ItemDescription: ' + item.Item_Definition}</Text>
+              <View style={{ padding: 3, borderBottomWidth: 2, borderColor: 'lightgrey' }}>
 
-                </View>
-              )
-            }} />
+                <ListItem bottomDivider>
 
-        </View>
+                  <ListItem.Content>
+
+                    <ListItem.Title style = {{fontWeight: 'bold' , color: 'black'}}>
+
+                      {item.Item_Definition}
+
+                    </ListItem.Title>
+
+                    <ListItem.Subtitle>
+
+                      {item.Item_Name}
+
+                    </ListItem.Subtitle>
+                  </ListItem.Content>
+
+                </ListItem>
+
+              </View>
+            )
+          }} />
+
+      </View>
 
     )
   }

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Image } from 'react-navigation'
+import { Image } from 'react-native'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import Home from '../Screens/Home'
 import Exchange from '../Screens/Exchange'
@@ -19,7 +19,7 @@ export const BottomTab = createBottomTabNavigator(
 
     />,
 
-    tabBarLabel: 'Home'
+    tabBarLabel: 'HomePage'
    }
   },
   ExchangePage: {
